@@ -1,12 +1,14 @@
 import pytest
-from model import ImageCaptioningModel  # Импортируем модель, предполагая, что она в файле model.py
-import torch
-from PIL import Image
 import sys
 import os
 
 # Добавляем родительскую директорию в пути поиска модулей
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+from model import ImageCaptioningModel
+from config import MODEL_PATH, MAX_LENGTH, NUM_BEAMS  # Импортируем модель, предполагая, что она в файле model.py
+import torch
+from PIL import Image
 
 # Создаём фикстуру для модели, чтобы её можно было использовать в тестах
 @pytest.fixture
@@ -50,4 +52,3 @@ def test_image_processing(model):
     images = [image]
     pixel_values = model.feature_extractor(images=images, return_tensors="pt").pixel_values
     assert pixel_values is not None, "Преобразование изображения не выполнено"
-
