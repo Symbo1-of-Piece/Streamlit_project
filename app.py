@@ -1,9 +1,7 @@
-# app.py
 import streamlit as st
 from model import ImageCaptioningModel
 from utils import load_image
 
-# Инициализация модели
 captioning_model = ImageCaptioningModel()
 
 def main():
