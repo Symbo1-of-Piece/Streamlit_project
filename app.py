@@ -1,8 +1,7 @@
+# app.py
 import streamlit as st
 from model import ImageCaptioningModel
 from utils import load_image
-
-#captioning_model = ImageCaptioningModel()
 
 def main():
     st.set_page_config(page_title="Image Captioning App", layout="wide")
