@@ -34,4 +34,4 @@ def predict_step(image_paths):
   return preds
 
 if __name__ == "__main__":
-    predict_step(['girl2.jpg'])
+    predict_step(['image.jpg'])
